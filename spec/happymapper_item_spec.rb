@@ -68,6 +68,11 @@ describe HappyMapper::Item do
       item.namespace = 'http://example.com'
       item.xpath.should == 'happymapper:foobar'
     end
+    
+    it "should return custom xpath if it is provided in options" do
+      item = HappyMapper::Item.new(:foo, String, :xpath => './/foo/bar')
+      item.xpath.should == './/foo/bar'
+    end
   end
   
   describe "typecasting" do

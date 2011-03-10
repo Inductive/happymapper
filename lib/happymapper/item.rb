@@ -13,6 +13,7 @@ module HappyMapper
     #   :raw    =>  Boolean Use raw node value (inc. tags) when parsing.
     #   :single =>  Boolean False if object should be collection, True for single object
     #   :tag    =>  String Element name if it doesn't match the specified name.
+    #   :xpath  =>  Custom built xpath expression
     def initialize(name, type, o={})
       self.name = name.to_s
       self.type = type
@@ -57,6 +58,8 @@ module HappyMapper
     end
     
     def xpath(namespace = self.namespace)
+      return options[:xpath] if options[:xpath]
+
       xpath  = ''
       xpath += './/' if options[:deep]
       xpath += "#{DEFAULT_NS}:" if namespace
