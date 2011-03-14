@@ -326,6 +326,14 @@ describe HappyMapper do
     property.value.should == '85301'
   end
 
+  it "should be able to parse medical claim using custom supplied xpath query" do
+    data = Medical::Claim.parse(fixture_file('medical_claim.xml'))
+    data.adjustments.size.should == 1
+    data.line_items.size.should == 2
+    data.line_items.first.adjustments.size.should == 1
+    data.line_items.last.adjustments.size.should == 1
+  end
+
   it "should allow instantiating with a string" do
     module StringFoo
       class Bar

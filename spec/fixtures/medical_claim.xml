@@ -1,0 +1,9 @@
+<Claim>
+  <Adjustment Group="OA" Reason="23" Amount="937.93" />
+  <LineItem ServiceQual="HC" ServiceID="A0427" Modifier3="HH" Charge="580" Payment="384.72" RevenueCode="" PaidUnit="1">
+    <Adjustment Group="OA" Reason="23" Amount="195.28" />
+  </LineItem>
+  <LineItem ServiceQual="HC" ServiceID="A0425" Modifier3="HH" Charge="1263.15" Payment="787.69" RevenueCode="" PaidUnit="105">
+    <Adjustment Group="OA" Reason="23" Amount="475.46" />
+  </LineItem>
+</Claim>

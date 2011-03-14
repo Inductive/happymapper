@@ -300,3 +300,24 @@ module Backpack
     content :body
   end
 end
+
+module Medical
+  class Adjustment
+    include HappyMapper
+    tag "Adjustment"
+  end
+
+  class LineItem
+    include HappyMapper
+    has_many :adjustments, Adjustment, :tag => "Adjustment"
+    tag "LineItem"
+  end
+
+  class Claim
+    include HappyMapper
+    tag "Claim"
+
+    has_many :adjustments, Adjustment, :tag => "Adjustment", :xpath => "/Claim/Adjustment"
+    has_many :line_items, LineItem, :tag => "LineItem"
+  end
+end
